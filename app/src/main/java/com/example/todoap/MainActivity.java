@@ -1,6 +1,8 @@
 package com.example.todoap;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -46,14 +48,34 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void handleLogin() {
-        String username = usernameInput.getText().toString();
-        String password = passwordInput.getText().toString();
+        String username = usernameInput.getText().toString().trim();
+        String password = passwordInput.getText().toString().trim();
 
+        // Perform basic validation
         if (username.isEmpty() || password.isEmpty()) {
             Toast.makeText(this, "Please enter both username and password", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(this, "Login successful!", Toast.LENGTH_SHORT).show();
-            // Navigate to another activity if login is successful
+            // Check if stored credentials match user input
+            if (isValidCredentials(username, password)) {
+                Toast.makeText(this, "Login successful!", Toast.LENGTH_SHORT).show();
+
+                // Navigate to HomeActivity
+                Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                startActivity(intent);
+                finish(); // Optional: Close the current activity
+            } else {
+                Toast.makeText(this, "Invalid username or password", Toast.LENGTH_SHORT).show();
+            }
         }
+    }
+
+    private boolean isValidCredentials(String username, String password) {
+        // Retrieve stored username and password from SharedPreferences
+        SharedPreferences sharedPreferences = getSharedPreferences("UserDetails", Context.MODE_PRIVATE);
+        String storedUsername = sharedPreferences.getString("Username", "");
+        String storedPassword = sharedPreferences.getString("Password", "");
+
+        // Compare with user input
+        return username.equals(storedUsername) && password.equals(storedPassword);
     }
 }
