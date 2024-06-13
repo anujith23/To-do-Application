@@ -2,4 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="bottom_nav_color">#6A6A6A</color> <!-- Default color for items -->
+    <color name="bottom_nav_selected_color">#10A000</color> <!-- Red color for selected item -->
+
 </resources>
