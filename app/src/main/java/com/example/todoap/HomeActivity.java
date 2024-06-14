@@ -3,6 +3,7 @@ package com.example.todoap;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -272,12 +273,14 @@ public class HomeActivity extends AppCompatActivity implements TaskAdapter.TaskI
         AlertDialog dialog = builder.create();
 
         buttonMyProfile.setOnClickListener(view -> {
-            Toast.makeText(HomeActivity.this, "My Profile selected", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(HomeActivity.this, UserProfileActivity.class);
+            startActivity(intent);
             dialog.dismiss();
         });
 
         buttonDeveloperProfile.setOnClickListener(view -> {
-            Toast.makeText(HomeActivity.this, "Developer Profile selected", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(HomeActivity.this, DevProfileActivity.class);
+            startActivity(intent);
             dialog.dismiss();
         });
 
