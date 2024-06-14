@@ -12,7 +12,9 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat_bold"
         android:text="Task Title"
+        android:textColor="#272727"
         android:textSize="16sp"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonEdit"
@@ -25,6 +27,7 @@
         android:fontFamily="@font/montserrat"
         android:text="Date Time"
         android:textSize="14sp"
+        android:textColor="#4C4C4C"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textViewTitle"
         app:layout_constraintEnd_toStartOf="@+id/buttonEdit"
@@ -33,21 +36,25 @@
 
     <ImageButton
         android:id="@+id/buttonEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="54dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
         android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/edit_task"
         android:src="@drawable/baseline_edit_24"
         app:layout_constraintEnd_toStartOf="@+id/buttonDelete"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/edit_task"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/buttonDelete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="64dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
         android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/delete_task"
         android:src="@drawable/baseline_delete_24"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/delete_task"/>
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

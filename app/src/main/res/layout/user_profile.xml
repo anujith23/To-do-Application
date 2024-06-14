@@ -75,7 +75,7 @@
 
     <Button
         android:id="@+id/changePasswordButton"
-        android:layout_width="wrap_content"
+        android:layout_width="194dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/editInfoButton"
         android:layout_centerHorizontal="true"

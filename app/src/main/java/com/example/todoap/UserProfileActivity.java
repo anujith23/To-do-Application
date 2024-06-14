@@ -137,8 +137,11 @@ public class UserProfileActivity extends AppCompatActivity {
     }
 
     private boolean validatePasswords(String currentPassword, String newPassword, String confirmPassword) {
-        // Implement your validation logic here
-        return !currentPassword.isEmpty() && newPassword.equals(confirmPassword);
+        // Retrieve the stored password from SharedPreferences
+        String storedPassword = sharedPreferences.getString("Password", "");
+
+        // Check if current password entered by the user matches the stored password
+        return storedPassword.equals(currentPassword) && !newPassword.isEmpty() && newPassword.equals(confirmPassword);
     }
 
     private void savePassword(String newPassword) {
